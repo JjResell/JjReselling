@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JRC Online Reselling Course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Turn your phone into a money-making machine. Learn hands-free reselling of premium electronics and fragrances with full mentorship.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a2246;
+      --accent: #fbba31;
+      --accent2: #32e69a;
+      --bg: #f7f9fc;
+      --box: #fff;
+      --shadow: 0 8px 24px rgba(31,44,65,0.10);
+    }
+    body {
+      font-family: 'Inter', 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--primary);
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      background: var(--primary);
+      color: #fff;
+      padding: 36px 14px 28px 14px;
+      position: relative;
+    }
+    header img.logo {
+      max-width: 110px;
+      width: 28vw;
+      min-width: 65px;
+      margin-bottom: 12px;
+      margin-top: 0px;
+      border-radius: 100vw;
+      border: 3px solid #fff;
+      background: #fff;
+      box-shadow: var(--shadow);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header h1 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 12px 0 6px 0;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    header .subtitle {
+      font-size: 1.14rem;
+      color: var(--accent2);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    nav button {
+      background: var(--accent);
+      color: #222;
+      border: none;
+      border-radius: 999px;
+      font-size: 1.04rem;
+      font-weight: 600;
+      padding: 11px 22px;
+      margin: 0 2px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(251,186,49,0.08);
+      transition: background 0.17s, color 0.17s;
+      outline: none;
+    }
+    nav button.active,
+    nav button:hover {
+      background: var(--primary);
+      color: #fff;
+      border: 1.5px solid var(--accent);
+    }
+    main {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 28px 12px 20px 12px;
+    }
+    section.content-section {
+      background: var(--box);
+      border-radius: 17px;
+      box-shadow: var(--shadow);
+      padding: 32px 20px 22px 20px;
+      margin-bottom: 30px;
+      display: none;
+      animation: fadein 0.6s;
+    }
+    section.content-section.active {
+      display: block;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    h2 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      color: var(--accent2);
+      margin-top: 0;
+      margin-bottom: 12px;
+      letter-spacing: 0.4px;
+    }
+    .course-info ul {
+      margin: 0 0 14px 0;
+      padding: 0 0 0 18px;
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+    .section-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.99rem;
+      margin-bottom: 10px;
+    }
+    .section-table th, .section-table td {
+      border: 1px solid #eee;
+      padding: 8px 8px;
+      text-align: left;
+    }
+    .section-table th {
+      background: #e7f2ff;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .section-table tr:nth-child(even) td {
+      background: #f8fafd;
+    }
+    .cta-block {
+      margin: 28px 0 0 0;
+      text-align: center;
+    }
+    .cta-btn {
+      background: var(--accent2);
+      color: #1a2246;
+      border: none;
+      border-radius: 9px;
+      font-weight: 700;
+      padding: 15px 36px;
+      font-size: 1.17rem;
+      margin-top: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(50,230,154,0.10);
+      text-decoration: none;
+      transition: background 0.18s;
+      display: inline-block;
+    }
+    .cta-btn:hover {
+      background: #13d683;
+      color: #fff;
+    }
+    .info-highlight {
+      background: #e6ffe8;
+      color: #1a7d46;
+      padding: 8px 13px;
+      border-radius: 7px;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: inline-block;
+    }
+    footer {
+      text-align: center;
+      color: #949494;
+      font-size: 1.01rem;
+      padding: 24px 8px 20px 8px;
+      margin-top: 22px;
+    }
+    @media (max-width: 600px) {
+      header { padding: 28px 5px 16px 5px;}
+      header h1 { font-size: 1.3rem; }
+      nav button { font-size: 0.97rem; padding: 9px 13px;}
+      main { padding: 19px 2px; }
+      section.content-section { padding: 17px 7px 13px 7px;}
+      .section-table th, .section-table td { font-size: 0.93rem; padding: 6px 4px;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="logo" src="51dd1c47-bc0a-44ca-93cf-d57ee15a6b99.png" alt="JRC Logo">
+    <h1>🔥 JRC Online Reselling Course</h1>
+    <div class="subtitle">Turn your phone into a money-making machine.</div>
+    <nav>
+      <button class="nav-btn active" data-section="about">About</button>
+      <button class="nav-btn" data-section="products">Product Catalog</button>
+      <button class="nav-btn" data-section="methods">Reselling Methods</button>
+      <button class="nav-btn" data-section="mentorship">Mentorship</button>
+      <button class="nav-btn" data-section="pricing">Pricing</button>
+      <button class="nav-btn" data-section="contact">How to Start</button>
+    </nav>
+  </header>
+  <main>
+    <!-- ABOUT -->
+    <section class="content-section active" id="about">
+      <h2>What is Reselling?</h2>
+      <div class="course-info">
+        <ul>
+          <li>Buy high-demand products cheap and flip for high profit — online or in person.</li>
+          <li>All products come with:
+            <ul>
+              <li>✅ Official receipts</li>
+              <li>✅ 1:1 condition</li>
+              <li>✅ Resealed & verified</li>
+              <li>✅ Huge markup potential</li>
+            </ul>
+          </li>
+          <li>Resell manually on marketplaces or go fully automated with my premium system.</li>
+        </ul>
+      </div>
+      <div class="info-highlight">
+        Whether you're just starting or want a hands-free side hustle, this course gives you all the tools.
+      </div>
+    </section>
+    <!-- PRODUCTS -->
+    <section class="content-section" id="products">
+      <h2>🛍️ Product Catalog & Profit Margins</h2>
+      <h3 style="margin-bottom: 7px;">🔌 Electronics</h3>
+      <div style="overflow-x:auto">
+        <table class="section-table">
+          <tr>
+            <th>PRODUCT</th><th>PRICE</th><th>BULK PRICES</th><th>RESELL FOR</th>
+          </tr>
+          <tr><td>AirPods Pro 2</td><td>$80</td><td>10–19: $75, 20+: $70</td><td>$160+</td></tr>
+          <tr><td>AirPods 4 (ANC)</td><td>$80</td><td>10–19: $75, 20+: $70</td><td>$150+</td></tr>
+          <tr><td>AirPods Max (USB-C)</td><td>$320</td><td>5–9: $315, 10+: $305</td><td>$500+</td></tr>
+          <tr><td>Apple Watch Ultra 2</td><td>$260</td><td>5–9: $250, 10+: $245</td><td>$800+</td></tr>
+          <tr><td>Apple Watch S10</td><td>$230</td><td>5–9: $225, 10+: $220</td><td>$650+</td></tr>
+          <tr><td>iPhone 16 Pro Max 1TB</td><td>$650</td><td>5–9: $630, 10+: $600</td><td>$1.6k+</td></tr>
+          <tr><td>Samsung S24 Ultra 1TB</td><td>$640</td><td>5–9: $630, 10+: $600</td><td>$1.5k+</td></tr>
+          <tr><td>Samsung S25 Ultra 1TB</td><td>$660</td><td>5–9: $630, 10+: $600</td><td>$1.7k+</td></tr>
+          <tr><td>Prada Glasses</td><td>$70</td><td>5–9: $68, 10+: $65</td><td>$110+</td></tr>
+          <tr><td>Geedup Hoodies</td><td>$145</td><td>2–5: $140, 5+: $135</td><td>$300+</td></tr>
+        </table>
+      </div>
+      <h3 style="margin-bottom: 7px;">👃 Designer Fragrances</h3>
+      <div style="overflow-x:auto">
+        <table class="section-table">
+          <tr>
+            <th>PRODUCT</th><th>PRICE</th><th>BULK PRICES</th><th>RESELL FOR</th>
+          </tr>
+          <tr><td>Baccarat Rouge 540 70ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
+          <tr><td>Creed Aventus 100ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
+          <tr><td>Dior Sauvage Elixir 100ml</td><td>$160</td><td>3–5: $155, 5+: $150</td><td>$250+</td></tr>
+          <tr><td>Louis Vuitton Imagination 100ml</td><td>$180</td><td>3–5: $175, 5+: $170</td><td>$450+</td></tr>
+          <tr><td>Louis Vuitton Ombre Nomade 100ml</td><td>$180</td><td>3–5: $175, 5+: $170</td><td>$450+</td></tr>
+          <tr><td>Tom Ford Tobacco Vanille 100ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$250+</td></tr>
+          <tr><td>Bleu De Chanel Parfum 100ml</td><td>$125</td><td>3–5: $123, 5+: $120</td><td>$200+</td></tr>
+          <tr><td>Dior Sauvage Parfum 100ml</td><td>$145</td><td>3–5: $140, 5+: $135</td><td>$200+</td></tr>
+          <tr><td>Tom Ford Oud Wood 100ml</td><td>$145</td><td>3–5: $140, 5+: $135</td><td>$250+</td></tr>
+          <tr><td>Le Labo Santal 33 100ml</td><td>$145</td><td>3–5: $140, 5+: $135</td><td>$250+</td></tr>
+          <tr><td>Baccarat Rouge Extrait 540 70ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
+          <tr><td>Le Labo Another 13 100ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
+          <tr><td>Coco Chanel Mademoiselle 100ml</td><td>$160</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
+          <tr><td>Tom Ford Lost Cherry 100ml</td><td>$150</td><td>3–5: $145, 5+: $140</td><td>$250+</td></tr>
+          <tr><td>Tom Ford Fing Fabulous 100ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
+        </table>
+      </div>
+    </section>
+    <!-- METHODS -->
+    <section class="content-section" id="methods">
+      <h2>💡 Reselling Methods You'll Learn</h2>
+      <h3>📱 Standard Marketplace Selling</h3>
+      <ul>
+        <li>Flip on Facebook Marketplace, Gumtree, Instagram DMs, Snapchat, TikTok Marketplace, in-person meetups</li>
+        <li>Includes: listing strategy, pricing hacks, copy/paste message scripts, best times to post, how to avoid bans & flags</li>
+      </ul>
+      <h3>🕵️ Hands-Free Premium Method (Secret)</h3>
+      <div class="info-highlight">
+        My most powerful strategy — the “Private DM” (kept private until you join).
+      </div>
+      <ul>
+        <li>List item online (template provided)</li>
+        <li>Buyer pays you direct</li>
+        <li>You send me the cost price</li>
+        <li>I handle packaging, shipping, tracking</li>
+        <li>You keep the profit — never touch the product</li>
+        <li>✅ No inventory, logistics, or stress</li>
+      </ul>
+    </section>
+    <!-- MENTORSHIP -->
+    <section class="content-section" id="mentorship">
+      <h2>🎓 Full Mentorship Inclusions</h2>
+      <ul>
+        <li>Step-by-step training</li>
+        <li>What to sell & where</li>
+        <li>How to meet buyers safely</li>
+        <li>1-on-1 support via DM or call</li>
+        <li>Resell calculators for bulk orders</li>
+        <li>Copy/paste tools for fast listing</li>
+        <li>Access to secret hands-free method</li>
+        <li>Lifetime access & future updates</li>
+      </ul>
+      <div class="info-highlight">All mentorship is fully private and tailored for your goals.</div>
+    </section>
+    <!-- PRICING -->
+    <section class="content-section" id="pricing">
+      <h2>💸 Course Tiers & Pricing</h2>
+      <div style="overflow-x:auto">
+        <table class="section-table">
+          <tr><th>PACKAGE</th><th>PRICE</th><th>INCLUDED</th></tr>
+          <tr>
+            <td>Starter Course</td>
+            <td>$200</td>
+            <td>Learn how to make your first $1,000 reselling</td>
+          </tr>
+          <tr>
+            <td>Fast Cash Method</td>
+            <td>$250</td>
+            <td>Learn to scale from $1,000 to $3,000 in 2 months</td>
+          </tr>
+          <tr>
+            <td>+ Automation Add-On</td>
+            <td>$300</td>
+            <td>Includes automation tools for easier scaling</td>
+          </tr>
+          <tr>
+            <td>Full Mentorship</td>
+            <td>$300–$400</td>
+            <td>All above + 1-on-1 coaching, full access, hands-free method</td>
+          </tr>
+        </table>
+      </div>
+      <div class="cta-block">
+        <span class="info-highlight" style="margin-bottom: 5px;">Flexible payment options available.</span>
+      </div>
+    </section>
+    <!-- CONTACT -->
+    <section class="content-section" id="contact">
+      <h2>📩 How to Start</h2>
+      <ul>
+        <li>Instagram: <b>@jjayresell_</b></li>
+        <li>DM me the word <b>“COURSE”</b> or <b>“MENTORSHIP”</b></li>
+        <li>I’ll guide you through the setup and get you access today.</li>
+        <li>You’re one decision away from building a profitable reselling business 💼📱💸</li>
+      </ul>
+      <div class="cta-block">
+        <a class="cta-btn" href="https://www.instagram.com/jjayresell_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" onclick="window.open('https://www.instagram.com/jjayresell_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==','_self');return false;">DM @jjayresell_ Now</a>
+      </div>
+      <div class="info-highlight" style="margin-top: 19px;">Have questions? Message me anytime for instant replies.</div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 JRC Reselling Course. No affiliation with Apple, Chanel, or brands listed.<br>
+    Website by <a href="https://www.instagram.com/jjayresell_" style="color:#fbba31;text-decoration:none;">@jjayresell_</a>
+  </footer>
+  <script>
+    // Button navigation logic
+    const btns = document.querySelectorAll('.nav-btn');
+    const sections = document.querySelectorAll('.content-section');
+    btns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        btns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const target = this.getAttribute('data-section');
+        sections.forEach(sec => {
+          sec.classList.remove('active');
+          if(sec.id === target) sec.classList.add('active');
+        });
+        window.scrollTo({ top: document.querySelector('header').offsetHeight, behavior: "smooth" });
+      });
+    });
+    // Ensure "DM" button stays in same tab (if clicked on contact)
+    document.querySelectorAll('.cta-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        location.href = btn.getAttribute('href');
+      });
+    });
+  </script>
+</body>
+</html>
