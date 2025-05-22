@@ -1,381 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>JRC Online Reselling Course</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Turn your phone into a money-making machine. Learn hands-free reselling of premium electronics and fragrances with full mentorship.">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>JRC Reselling Mastery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #1a2246;
-      --accent: #fbba31;
-      --accent2: #32e69a;
-      --bg: #f7f9fc;
-      --box: #fff;
-      --shadow: 0 8px 24px rgba(31,44,65,0.10);
+      --black: #141414;
+      --gold: #e5c968;
+      --gold-glow: #ffe17799;
+      --white: #fff;
+      --glass: rgba(30,30,30,0.82);
+      --shadow: 0 8px 36px rgba(0,0,0,0.17);
     }
-    body {
-      font-family: 'Inter', 'Montserrat', Arial, sans-serif;
-      margin: 0;
-      background: var(--bg);
-      color: var(--primary);
+    * { box-sizing: border-box; margin: 0; padding: 0;}
+    html, body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Montserrat', Arial, sans-serif;
       min-height: 100vh;
+      scroll-behavior: smooth;
     }
+    body {overflow-x: hidden;}
     header {
-      text-align: center;
-      background: var(--primary);
-      color: #fff;
-      padding: 36px 14px 28px 14px;
-      position: relative;
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(20,20,20,0.98);
+      box-shadow: 0 2px 14px #0006;
+      animation: fadeDown 1.1s cubic-bezier(.8,0,.3,1);
     }
-    header img.logo {
-      max-width: 110px;
-      width: 28vw;
-      min-width: 65px;
-      margin-bottom: 12px;
-      margin-top: 0px;
-      border-radius: 100vw;
-      border: 3px solid #fff;
-      background: #fff;
-      box-shadow: var(--shadow);
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+    .nav {
+      max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 14px 18px;
     }
-    header h1 {
-      font-family: 'Montserrat', Arial, sans-serif;
-      margin: 12px 0 6px 0;
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+    .logo { display: flex; align-items: center; font-weight: 800; font-size: 1.55rem; letter-spacing: 2px; color: var(--gold);}
+    .logo img { width: 55px; height:55px; border-radius: 50%; margin-right: 16px; box-shadow: 0 0 32px var(--gold-glow);}
+    nav ul { display: flex; gap: 34px; list-style: none;}
+    nav a { color: var(--gold); text-decoration: none; font-weight: 700; letter-spacing: 2px; font-size: 1.02em; position:relative; transition:color 0.18s;}
+    nav a:after { content:""; display:block; width:0; height:2.5px; background:var(--gold); border-radius:3px; transition:width .27s;}
+    nav a:hover { color: var(--white);}
+    nav a:hover:after { width:100%; }
+
+    .hero {
+      min-height: 77vh; display: flex; align-items: center; justify-content: center;
+      flex-direction: column; text-align: center; position:relative; z-index:2; overflow:hidden;
+      background: radial-gradient(ellipse 90% 63% at 49% 44%, #7e652a22 0%, transparent 70%);
     }
-    header .subtitle {
-      font-size: 1.14rem;
-      color: var(--accent2);
-      margin-bottom: 8px;
-      font-weight: 600;
+    .hero-logo { margin-top:40px; margin-bottom: 30px; }
+    .hero-logo img { width:160px; height:160px; border-radius:50%; box-shadow:0 0 64px var(--gold-glow);}
+    .hero h1 {
+      font-size: 2.6rem; font-weight: 900;
+      background: linear-gradient(92deg,var(--gold) 85%,#fff 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom:20px; letter-spacing:2px; animation: goldGlow 1.2s cubic-bezier(.6,0,.6,1);
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
+    .hero p { font-size:1.27rem; color:#eee7b2; margin-bottom: 36px; max-width:600px; margin-left:auto; margin-right:auto;}
+    .cta {
+      display:inline-block; padding:18px 46px; border-radius:2.6rem; font-size:1.23rem; font-weight:900;
+      color:var(--black); background:var(--gold); box-shadow: 0 3px 32px var(--gold-glow);
+      letter-spacing:2.2px; border:none; transition:box-shadow 0.18s,transform 0.18s;
+      text-shadow: 0 1px 0 #fff4, 0 0 6px #fff2;
+      cursor:pointer;
     }
-    nav button {
-      background: var(--accent);
-      color: #222;
-      border: none;
-      border-radius: 999px;
-      font-size: 1.04rem;
-      font-weight: 600;
-      padding: 11px 22px;
-      margin: 0 2px;
-      cursor: pointer;
-      box-shadow: 0 3px 10px rgba(251,186,49,0.08);
-      transition: background 0.17s, color 0.17s;
-      outline: none;
+    .cta:hover { box-shadow:0 7px 48px var(--gold-glow); transform:scale(1.03);}
+    .hero-bg {
+      position: absolute; z-index: 0; top:0; left:0; right:0; bottom:0; pointer-events:none;
+      background: radial-gradient(circle 800px at 50% 30%, #e5c96811 0%, transparent 88%);
     }
-    nav button.active,
-    nav button:hover {
-      background: var(--primary);
-      color: #fff;
-      border: 1.5px solid var(--accent);
+    section { max-width: 1060px; margin:0 auto; padding:68px 16px 54px 16px; position:relative;}
+    section h2 { font-size:2.05rem; font-weight:900; color:var(--gold); letter-spacing:2.2px; margin-bottom:32px;}
+    .fade-in { opacity:0; transform:translateY(60px) scale(0.98); transition:all 0.7s cubic-bezier(.44,1.73,.66,.88);}
+    .fade-in.visible { opacity:1; transform:none; }
+    .what-resell { font-size:1.25rem; color:#f4e4b8; background:rgba(30,30,30,0.88); padding:24px 18px; border-radius:18px; box-shadow: var(--shadow); line-height:1.62;}
+    .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:32px;}
+    .step-card {
+      background:var(--glass); border-radius:18px; padding:28px 18px; text-align:center;
+      box-shadow:0 7px 38px #e5c9680d; transition: transform .19s, box-shadow .19s; border: 1.5px solid #e5c96824;
+      position:relative;
     }
-    main {
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 28px 12px 20px 12px;
+    .step-card:hover { transform: scale(1.045) translateY(-4px); box-shadow:0 18px 48px #ffe17722;}
+    .step-number {
+      font-size:1.32rem; font-weight:800; color:var(--gold); border-radius:50%; width:36px; height:36px; line-height:36px;
+      background:#1b180c; border:2px solid var(--gold); display:inline-block; margin-bottom:12px;
     }
-    section.content-section {
-      background: var(--box);
-      border-radius: 17px;
-      box-shadow: var(--shadow);
-      padding: 32px 20px 22px 20px;
-      margin-bottom: 30px;
-      display: none;
-      animation: fadein 0.6s;
+    .step-card.locked {
+      filter: blur(0.5px) grayscale(0.6) brightness(0.86);
+      position:relative;
     }
-    section.content-section.active {
-      display: block;
+    .lock-overlay {
+      position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(20,20,20,0.58);
+      border-radius:inherit; display:flex; align-items:center; justify-content:center; pointer-events:none;
+      font-size:2.8em; color:var(--gold);
+      text-shadow: 0 4px 16px #000, 0 2px 8px #ffe17744;
     }
-    @keyframes fadein {
-      from { opacity: 0; transform: translateY(30px);}
-      to { opacity: 1; transform: translateY(0);}
+    .category-title {
+      font-size:1.34rem; color:var(--gold); margin-top:32px; margin-bottom:14px; font-weight:800; letter-spacing:1.4px;
+      border-left:5px solid var(--gold); padding-left:12px;
     }
-    h2 {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      color: var(--accent2);
-      margin-top: 0;
-      margin-bottom: 12px;
-      letter-spacing: 0.4px;
+    .products-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(235px,1fr)); gap:26px; }
+    .product-card {
+      background: linear-gradient(135deg, #222 74%, #2c2c2c 100%);
+      border:1.5px solid #ffe17733; border-radius:17px; box-shadow:0 3px 28px #ffe17722;
+      padding:24px 18px 19px 18px; text-align:center; position:relative; overflow:hidden;
+      transition:box-shadow .16s, transform .18s;
+      min-height: 180px;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
     }
-    .course-info ul {
-      margin: 0 0 14px 0;
-      padding: 0 0 0 18px;
-      font-size: 1.08rem;
-      line-height: 1.8;
+    .product-card:hover {
+      box-shadow:0 9px 48px #e5c96844,0 2px 18px #ffe17718;
+      transform:scale(1.045) translateY(-2px);
+      z-index:2;
     }
-    .section-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.99rem;
-      margin-bottom: 10px;
+    .prod-title { font-size:1.09rem; color:var(--gold); font-weight:700; margin-bottom:7px; }
+    .prod-price, .prod-bulk, .prod-sell { color:#ffe98e; font-size:.98em; margin-bottom:3px;}
+    .prod-bulk {color:#fcf8db;}
+    .prod-sell { color:var(--gold); font-weight:600;}
+    .prod-note { color:#d6cf9a; font-size:.93em; margin-top:4px;}
+    .packages { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:29px; }
+    .pkg-card {
+      background:linear-gradient(135deg,#222 80%,#392e13 100%);
+      border:2.2px solid var(--gold); border-radius:19px; box-shadow:0 5px 33px #e5c96812;
+      padding:26px 19px 21px 19px; text-align:center; position:relative;
+      color:var(--gold); font-weight:700; font-size:1.13em; transition:box-shadow .16s,transform .16s;
     }
-    .section-table th, .section-table td {
-      border: 1px solid #eee;
-      padding: 8px 8px;
-      text-align: left;
+    .pkg-card:hover { box-shadow:0 18px 44px #ffe17744; transform:scale(1.045);}
+    .pkg-title { font-size:1.09em; margin-bottom:7px; letter-spacing:.7px;}
+    .pkg-price { color:#fffbe5; font-weight:900; font-size:1.2em; margin-bottom:9px; letter-spacing:1.2px;}
+    .pkg-desc { color:#e0ca84; font-size:1em; margin-bottom:2px;}
+    .method-list { margin-top:5px;}
+    .method-item { font-size:1.05em; color:#e4e2d0; margin-bottom:10px; display:flex; align-items:center;}
+    .method-item.locked { filter: blur(0.4px) grayscale(0.68); color:#b8a962;}
+    .method-lock { font-size:1.25em; margin-right:7px; color:var(--gold);}
+    .method-label { font-weight:700; }
+    .about-box { background:rgba(30,30,30,0.92); border-radius:18px; padding:24px 18px; color:#d3c685; box-shadow:var(--shadow);}
+    .testimonials { margin-top:29px; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:19px;}
+    .testimonial { background:rgba(40,40,25,0.83); border-radius:15px; padding:20px 18px; box-shadow:0 2px 12px #ffe1771a;}
+    .testimonial .quote { font-size:1em; color:#f3ebc3;}
+    .testimonial .person { font-weight:700; margin-top:10px; color:var(--gold);}
+    .contact-box { background:#1a180f; border-radius:17px; text-align:center; padding:30px 16px 24px 16px; box-shadow:0 2px 17px #e5c9681a; }
+    .contact-box a { color:var(--gold); font-size:1.12em; font-weight:900; text-decoration:none; background:#222; padding:13px 33px; border-radius:9px; box-shadow:0 1px 11px #ffe17728; display:inline-block; transition:background .18s,box-shadow .18s;}
+    .contact-box a:hover { background:var(--gold); color:#111; box-shadow:0 5px 28px #ffe1776e;}
+    .contact-ig { margin-top:14px; margin-bottom:10px; font-size:1.11em;}
+    .contact-tag { font-weight:700; letter-spacing:1px;}
+    footer { text-align:center; padding:30px 0 13px 0; color:#e6cf9c; font-size:1.07em;}
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-40px);} to{opacity:1; transform:none;}}
+    @keyframes goldGlow { 0%{text-shadow:0 0 0 #ffe17700;} 100%{text-shadow:0 0 38px #ffe17799;}}
+    @media (max-width:700px) {
+      .nav { flex-direction:column; gap:16px;}
+      .hero-logo img {width:105px; height:105px;}
+      .hero h1 {font-size:1.3rem;}
+      .category-title {font-size:1.08rem;}
     }
-    .section-table th {
-      background: #e7f2ff;
-      color: var(--primary);
-      font-weight: 700;
-    }
-    .section-table tr:nth-child(even) td {
-      background: #f8fafd;
-    }
-    .cta-block {
-      margin: 28px 0 0 0;
-      text-align: center;
-    }
-    .cta-btn {
-      background: var(--accent2);
-      color: #1a2246;
-      border: none;
-      border-radius: 9px;
-      font-weight: 700;
-      padding: 15px 36px;
-      font-size: 1.17rem;
-      margin-top: 8px;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(50,230,154,0.10);
-      text-decoration: none;
-      transition: background 0.18s;
-      display: inline-block;
-    }
-    .cta-btn:hover {
-      background: #13d683;
-      color: #fff;
-    }
-    .info-highlight {
-      background: #e6ffe8;
-      color: #1a7d46;
-      padding: 8px 13px;
-      border-radius: 7px;
-      margin-bottom: 8px;
-      font-size: 1rem;
-      display: inline-block;
-    }
-    footer {
-      text-align: center;
-      color: #949494;
-      font-size: 1.01rem;
-      padding: 24px 8px 20px 8px;
-      margin-top: 22px;
-    }
-    @media (max-width: 600px) {
-      header { padding: 28px 5px 16px 5px;}
-      header h1 { font-size: 1.3rem; }
-      nav button { font-size: 0.97rem; padding: 9px 13px;}
-      main { padding: 19px 2px; }
-      section.content-section { padding: 17px 7px 13px 7px;}
-      .section-table th, .section-table td { font-size: 0.93rem; padding: 6px 4px;}
+    @media (max-width:500px) {
+      .nav ul { gap:14px;}
+      .hero h1 {font-size:1.07rem;}
+      .hero-logo img {width:85px; height:85px;}
+      section {padding:40px 3vw 32px 3vw;}
     }
   </style>
 </head>
 <body>
   <header>
-    <img class="logo" src="51dd1c47-bc0a-44ca-93cf-d57ee15a6b99.png" alt="JRC Logo">
-    <h1>🔥 JRC Online Reselling Course</h1>
-    <div class="subtitle">Turn your phone into a money-making machine.</div>
-    <nav>
-      <button class="nav-btn active" data-section="about">About</button>
-      <button class="nav-btn" data-section="products">Product Catalog</button>
-      <button class="nav-btn" data-section="methods">Reselling Methods</button>
-      <button class="nav-btn" data-section="mentorship">Mentorship</button>
-      <button class="nav-btn" data-section="pricing">Pricing</button>
-      <button class="nav-btn" data-section="contact">How to Start</button>
-    </nav>
-  </header>
-  <main>
-    <!-- ABOUT -->
-    <section class="content-section active" id="about">
-      <h2>What is Reselling?</h2>
-      <div class="course-info">
+    <div class="nav">
+      <div class="logo">
+        <img src="logo.png" alt="JRC Logo" />
+        JRC Resell
+      </div>
+      <nav>
         <ul>
-          <li>Buy high-demand products cheap and flip for high profit — online or in person.</li>
-          <li>All products come with:
-            <ul>
-              <li>✅ Official receipts</li>
-              <li>✅ 1:1 condition</li>
-              <li>✅ Resealed & verified</li>
-              <li>✅ Huge markup potential</li>
-            </ul>
-          </li>
-          <li>Resell manually on marketplaces or go fully automated with my premium system.</li>
+          <li><a href="#intro">Home</a></li>
+          <li><a href="#what">What is Reselling?</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#methods">Methods</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero" id="intro">
+    <div class="hero-bg"></div>
+    <div class="hero-logo"><img src="logo.png" alt="JRC Logo" /></div>
+    <h1 class="fade-in">Level Up Your Reselling Game.<br>Learn. List. Profit.<br><span style="font-size:1.08em; color:#ffe98e;">Become a certified reseller with JRC.</span></h1>
+    <p class="fade-in" style="transition-delay:.2s;">Unlock real results with proven strategies, the latest product drops, and hands-free automation. Your phone is your business—start today.</p>
+    <a href="#courses" class="cta fade-in" style="transition-delay:.33s;">View Courses</a>
+  </div>
+
+  <section id="what" class="fade-in">
+    <h2>What is Reselling?</h2>
+    <div class="what-resell">
+      Reselling is the art and business of buying popular products at a low or wholesale price, then selling them for a higher price to retail buyers or collectors. Whether it’s limited-edition electronics, designer fragrances, or hyped streetwear, reselling lets you turn your phone into a source of cash flow. <br><br>
+      <b>Anyone can do it—no experience or big upfront investment required. Learn the secrets to sourcing, listing, and selling like a pro with JRC.</b>
+    </div>
+  </section>
+
+  <section id="how" class="fade-in">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <b>Sign Up</b>
+        <p>Join our mentorship and get access to exclusive suppliers and our reseller group chat.</p>
       </div>
-      <div class="info-highlight">
-        Whether you're just starting or want a hands-free side hustle, this course gives you all the tools.
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <b>List Products</b>
+        <p>Use our photos and copy-paste descriptions to list on eBay, Facebook, or Gumtree. No inventory needed.</p>
       </div>
-    </section>
-    <!-- PRODUCTS -->
-    <section class="content-section" id="products">
-      <h2>🛍️ Product Catalog & Profit Margins</h2>
-      <h3 style="margin-bottom: 7px;">🔌 Electronics</h3>
-      <div style="overflow-x:auto">
-        <table class="section-table">
-          <tr>
-            <th>PRODUCT</th><th>PRICE</th><th>BULK PRICES</th><th>RESELL FOR</th>
-          </tr>
-          <tr><td>AirPods Pro 2</td><td>$80</td><td>10–19: $75, 20+: $70</td><td>$160+</td></tr>
-          <tr><td>AirPods 4 (ANC)</td><td>$80</td><td>10–19: $75, 20+: $70</td><td>$150+</td></tr>
-          <tr><td>AirPods Max (USB-C)</td><td>$320</td><td>5–9: $315, 10+: $305</td><td>$500+</td></tr>
-          <tr><td>Apple Watch Ultra 2</td><td>$260</td><td>5–9: $250, 10+: $245</td><td>$800+</td></tr>
-          <tr><td>Apple Watch S10</td><td>$230</td><td>5–9: $225, 10+: $220</td><td>$650+</td></tr>
-          <tr><td>iPhone 16 Pro Max 1TB</td><td>$650</td><td>5–9: $630, 10+: $600</td><td>$1.6k+</td></tr>
-          <tr><td>Samsung S24 Ultra 1TB</td><td>$640</td><td>5–9: $630, 10+: $600</td><td>$1.5k+</td></tr>
-          <tr><td>Samsung S25 Ultra 1TB</td><td>$660</td><td>5–9: $630, 10+: $600</td><td>$1.7k+</td></tr>
-          <tr><td>Prada Glasses</td><td>$70</td><td>5–9: $68, 10+: $65</td><td>$110+</td></tr>
-          <tr><td>Geedup Hoodies</td><td>$145</td><td>2–5: $140, 5+: $135</td><td>$300+</td></tr>
-        </table>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <b>Make Sales</b>
+        <p>Your buyers pay you directly. No risk—sell before you buy!</p>
       </div>
-      <h3 style="margin-bottom: 7px;">👃 Designer Fragrances</h3>
-      <div style="overflow-x:auto">
-        <table class="section-table">
-          <tr>
-            <th>PRODUCT</th><th>PRICE</th><th>BULK PRICES</th><th>RESELL FOR</th>
-          </tr>
-          <tr><td>Baccarat Rouge 540 70ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
-          <tr><td>Creed Aventus 100ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
-          <tr><td>Dior Sauvage Elixir 100ml</td><td>$160</td><td>3–5: $155, 5+: $150</td><td>$250+</td></tr>
-          <tr><td>Louis Vuitton Imagination 100ml</td><td>$180</td><td>3–5: $175, 5+: $170</td><td>$450+</td></tr>
-          <tr><td>Louis Vuitton Ombre Nomade 100ml</td><td>$180</td><td>3–5: $175, 5+: $170</td><td>$450+</td></tr>
-          <tr><td>Tom Ford Tobacco Vanille 100ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$250+</td></tr>
-          <tr><td>Bleu De Chanel Parfum 100ml</td><td>$125</td><td>3–5: $123, 5+: $120</td><td>$200+</td></tr>
-          <tr><td>Dior Sauvage Parfum 100ml</td><td>$145</td><td>3–5: $140, 5+: $135</td><td>$200+</td></tr>
-          <tr><td>Tom Ford Oud Wood 100ml</td><td>$145</td><td>3–5: $140, 5+: $135</td><td>$250+</td></tr>
-          <tr><td>Le Labo Santal 33 100ml</td><td>$145</td><td>3–5: $140, 5+: $135</td><td>$250+</td></tr>
-          <tr><td>Baccarat Rouge Extrait 540 70ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
-          <tr><td>Le Labo Another 13 100ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
-          <tr><td>Coco Chanel Mademoiselle 100ml</td><td>$160</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
-          <tr><td>Tom Ford Lost Cherry 100ml</td><td>$150</td><td>3–5: $145, 5+: $140</td><td>$250+</td></tr>
-          <tr><td>Tom Ford Fing Fabulous 100ml</td><td>$165</td><td>3–5: $160, 5+: $155</td><td>$300+</td></tr>
-        </table>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <b>We Fulfill</b>
+        <p>You pay our wholesale price. We pack & ship directly to your buyer (with tracking), so you keep the profit hands-free.</p>
       </div>
-    </section>
-    <!-- METHODS -->
-    <section class="content-section" id="methods">
-      <h2>💡 Reselling Methods You'll Learn</h2>
-      <h3>📱 Standard Marketplace Selling</h3>
-      <ul>
-        <li>Flip on Facebook Marketplace, Gumtree, Instagram DMs, Snapchat, TikTok Marketplace, in-person meetups</li>
-        <li>Includes: listing strategy, pricing hacks, copy/paste message scripts, best times to post, how to avoid bans & flags</li>
-      </ul>
-      <h3>🕵️ Hands-Free Premium Method (Secret)</h3>
-      <div class="info-highlight">
-        My most powerful strategy — the “Private DM” (kept private until you join).
+      <div class="step-card locked">
+        <div class="lock-overlay"><span>&#128274;</span></div>
+        <div class="step-number">5</div>
+        <b>Special Automation Method</b>
+        <p style="filter:blur(.7px);">Exclusive automated process for bulk profits.<br>Details unlocked after joining.</p>
       </div>
-      <ul>
-        <li>List item online (template provided)</li>
-        <li>Buyer pays you direct</li>
-        <li>You send me the cost price</li>
-        <li>I handle packaging, shipping, tracking</li>
-        <li>You keep the profit — never touch the product</li>
-        <li>✅ No inventory, logistics, or stress</li>
-      </ul>
-    </section>
-    <!-- MENTORSHIP -->
-    <section class="content-section" id="mentorship">
-      <h2>🎓 Full Mentorship Inclusions</h2>
-      <ul>
-        <li>Step-by-step training</li>
-        <li>What to sell & where</li>
-        <li>How to meet buyers safely</li>
-        <li>1-on-1 support via DM or call</li>
-        <li>Resell calculators for bulk orders</li>
-        <li>Copy/paste tools for fast listing</li>
-        <li>Access to secret hands-free method</li>
-        <li>Lifetime access & future updates</li>
-      </ul>
-      <div class="info-highlight">All mentorship is fully private and tailored for your goals.</div>
-    </section>
-    <!-- PRICING -->
-    <section class="content-section" id="pricing">
-      <h2>💸 Course Tiers & Pricing</h2>
-      <div style="overflow-x:auto">
-        <table class="section-table">
-          <tr><th>PACKAGE</th><th>PRICE</th><th>INCLUDED</th></tr>
-          <tr>
-            <td>Starter Course</td>
-            <td>$200</td>
-            <td>Learn how to make your first $1,000 reselling</td>
-          </tr>
-          <tr>
-            <td>Fast Cash Method</td>
-            <td>$250</td>
-            <td>Learn to scale from $1,000 to $3,000 in 2 months</td>
-          </tr>
-          <tr>
-            <td>+ Automation Add-On</td>
-            <td>$300</td>
-            <td>Includes automation tools for easier scaling</td>
-          </tr>
-          <tr>
-            <td>Full Mentorship</td>
-            <td>$300–$400</td>
-            <td>All above + 1-on-1 coaching, full access, hands-free method</td>
-          </tr>
-        </table>
+    </div>
+  </section>
+
+  <section id="products" class="fade-in">
+    <h2>Products & Profits</h2>
+    <div class="category-title">Electronics</div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="prod-title">Airpod Pro 2</div>
+        <div class="prod-price">Price: $80</div>
+        <div class="prod-bulk">Bulk: 10-19 $75, 20+ $70</div>
+        <div class="prod-sell">Sell for: $160+</div>
       </div>
-      <div class="cta-block">
-        <span class="info-highlight" style="margin-bottom: 5px;">Flexible payment options available.</span>
+      <div class="product-card">
+        <div class="prod-title">Airpods 4 (ANC)</div>
+        <div class="prod-price">Price: $90</div>
+        <div class="prod-bulk">Bulk: 10-19 $85, 20+ $80</div>
+        <div class="prod-sell">Sell for: $170+</div>
       </div>
-    </section>
-    <!-- CONTACT -->
-    <section class="content-section" id="contact">
-      <h2>📩 How to Start</h2>
-      <ul>
-        <li>Instagram: <b>@jjayresell_</b></li>
-        <li>DM me the word <b>“COURSE”</b> or <b>“MENTORSHIP”</b></li>
-        <li>I’ll guide you through the setup and get you access today.</li>
-        <li>You’re one decision away from building a profitable reselling business 💼📱💸</li>
-      </ul>
-      <div class="cta-block">
-        <a class="cta-btn" href="https://www.instagram.com/jjayresell_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" onclick="window.open('https://www.instagram.com/jjayresell_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==','_self');return false;">DM @jjayresell_ Now</a>
+      <div class="product-card">
+        <div class="prod-title">Airpod Max (USB-C)</div>
+        <div class="prod-price">Price: $320</div>
+        <div class="prod-bulk">Bulk: 5-9 $315, 10+ $305</div>
+        <div class="prod-sell">Sell for: $450+</div>
       </div>
-      <div class="info-highlight" style="margin-top: 19px;">Have questions? Message me anytime for instant replies.</div>
-    </section>
-  </main>
+      <div class="product-card">
+        <div class="prod-title">Apple Watch Ultra 2</div>
+        <div class="prod-price">Price: $640</div>
+        <div class="prod-bulk">Bulk: 5-9 $635, 10+ $625</div>
+        <div class="prod-sell">Sell for: $850+</div>
+      </div>
+      <div class="product-card">
+        <div class="prod-title">Apple Watch S10</div>
+        <div class="prod-price">Price: $230</div>
+        <div class="prod-bulk">Bulk: 5-9 $225, 10+ $220</div>
+        <div class="prod-sell">Sell for: $320+</div>
+      </div>
+      <div class="product-card">
+        <div class="prod-title">iPhone 16 Pro Max 1TB</div>
+        <div class="prod-price">Price: $1550</div>
+        <div class="prod-bulk">Bulk: 3-4 $1520, 5+ $1500</div>
+        <div class="prod-sell">Sell for: $2050+</div>
+      </div>
+      <div class="product-card">
+        <div class="prod-title">Samsung S24 Ultra 1TB</div>
+        <div class="prod-price">Price: $640</div>
+        <div class="prod-bulk">Bulk: 5-9 $630, 10+ $620</div>
+        <div class="prod-sell">Sell for: $890+</div>
+      </div>
+      <div class="product-card">
+        <div class="prod-title">Samsung S25 Ultra 1TB</div>
+        <div class="prod-price">Price: $760</div>
+        <div class="prod-bulk">Bulk: 5-9 $630, 10+ $600</div>
+        <div class="prod-sell">Sell for: $1.7k+</div>
+      </div>
+      <div class="product-card">
+        <div class="prod-title">Prada Glasses</div>
+        <div class="prod-price">Price: $110</div>
+        <div class="prod-bulk">Bulk: -</div>
+        <div class="prod-sell">Sell for: $210+</div>
+      </div>
+    </div>
+    <div class="category-title">Fragrances</div>
+    <div class="products-grid">
+      <div class="product-card"><div class="prod-title">Baccarat Rouge 540 70ml</div><div class="prod-price">Price: $165</div><div class="prod-bulk">Bulk: 3-5 $160, 5+ $155</div><div class="prod-sell">Sell for: $300+</div></div>
+      <div class="product-card"><div class="prod-title">Creed Aventus 100ml</div><div class="prod-price">Price: $165</div><div class="prod-bulk">Bulk: 3-5 $160, 5+ $155</div><div class="prod-sell">Sell for: $350+</div></div>
+      <div class="product-card"><div class="prod-title">Dior Sauvage Elixir 100ml</div><div class="prod-price">Price: $160</div><div class="prod-bulk">Bulk: 3-5 $155, 5+ $150</div><div class="prod-sell">Sell for: $300+</div></div>
+      <div class="product-card"><div class="prod-title">Louis Vuitton Imagination 100ml</div><div class="prod-price">Price: $180</div><div class="prod-bulk">Bulk: 3-5 $175, 5+ $170</div><div class="prod-sell">Sell for: $400+</div></div>
+      <div class="product-card"><div class="prod-title">Louis Vuitton Ombre Nomade 100ml</div><div class="prod-price">Price: $180</div><div class="prod-bulk">Bulk: 3-5 $175, 5+ $170</div><div class="prod-sell">Sell for: $450+</div></div>
+      <div class="product-card"><div class="prod-title">Tom Ford Tabacco Vanille 100ml</div><div class="prod-price">Price: $165</div><div class="prod-bulk">Bulk: 3-5 $160, 5+ $155</div><div class="prod-sell">Sell for: $320+</div></div>
+      <div class="product-card"><div class="prod-title">Bleu De Chanel Parfum 100ml</div><div class="prod-price">Price: $145</div><div class="prod-bulk">Bulk: 3-5 $140, 5+ $135</div><div class="prod-sell">Sell for: $260+</div></div>
+      <div class="product-card"><div class="prod-title">Dior Sauvage Parfum 100ml</div><div class="prod-price">Price: $145</div><div class="prod-bulk">Bulk: 3-5 $140, 5+ $135</div><div class="prod-sell">Sell for: $200+</div></div>
+      <div class="product-card"><div class="prod-title">Tom Ford Oud Wood 100ml</div><div class="prod-price">Price: $145</div><div class="prod-bulk">Bulk: 3-5 $140, 5+ $135</div><div class="prod-sell">Sell for: $250+</div></div>
+      <div class="product-card"><div class="prod-title">Le Labo Sental 33 100ml</div><div class="prod-price">Price: $145</div><div class="prod-bulk">Bulk: 3-5 $140, 5+ $135</div><div class="prod-sell">Sell for: $250+</div></div>
+      <div class="product-card"><div class="prod-title">Baccarat Rouge Extrait 540 70ml</div><div class="prod-price">Price: $150</div><div class="prod-bulk">Bulk: 3-5 $145, 5+ $140</div><div class="prod-sell">Sell for: $300+</div></div>
+      <div class="product-card"><div class="prod-title">Le Labo Another 13 100ml</div><div class="prod-price">Price: $165</div><div class="prod-bulk">Bulk: 3-5 $160, 5+ $155</div><div class="prod-sell">Sell for: $350+</div></div>
+      <div class="product-card"><div class="prod-title">Coco Chanel Mademoiselle 100ml</div><div class="prod-price">Price: $115</div><div class="prod-bulk">Bulk: 3-5 $110, 5+ $105</div><div class="prod-sell">Sell for: $210+</div></div>
+      <div class="product-card"><div class="prod-title">Tom Ford Lost Cherry 100ml</div><div class="prod-price">Price: $165</div><div class="prod-bulk">Bulk: 3-5 $160, 5+ $155</div><div class="prod-sell">Sell for: $320+</div></div>
+      <div class="product-card"><div class="prod-title">Tom Ford Fing Fabulous 100ml</div><div class="prod-price">Price: $165</div><div class="prod-bulk">Bulk: 3-5 $160, 5+ $155</div><div class="prod-sell">Sell for: $350+</div></div>
+    </div>
+    <div class="category-title">Streetwear</div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="prod-title">Geedup Hoodies</div>
+        <div class="prod-price">Price: $145</div>
+        <div class="prod-bulk">Bulk: 2-5 $140, 5+ $135</div>
+        <div class="prod-sell">Sell for: $300+</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses" class="fade-in">
+    <h2>Course Packages</h2>
+    <div class="packages">
+      <div class="pkg-card">
+        <div class="pkg-title">1. Starter Course – Make Your First $1000</div>
+        <div class="pkg-price">Price: $200</div>
+        <div class="pkg-desc">Get all basics and start flipping within 1 week. Step-by-step for complete beginners.</div>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-title">2. Fast Cash Method<br>$1000 to $3000 in &lt;2 Months</div>
+        <div class="pkg-price">Price: $250 (basic) / $300 (with automation add-on)</div>
+        <div class="pkg-desc">More advanced secrets, find the best buyers, maximize profit—plus automation option.</div>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-title">3. Full Mentorship Package – $2500+ Blueprint</div>
+        <div class="pkg-price">Price: $300 – $4000</div>
+        <div class="pkg-desc">Personalized blueprint, ongoing access, all my insider methods. Go full-time with your business!</div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:18px;">
+      <img src="logo.png" alt="Logo" style="width:60px; margin-top:20px; border-radius:50%; box-shadow:0 0 30px #ffe17777;">
+    </div>
+  </section>
+
+  <section id="methods" class="fade-in">
+    <h2>Methods</h2>
+    <div class="method-list">
+      <div class="method-item"><span class="method-label">Direct Shipping Model:</span>&nbsp; Sell first, pay wholesale after. No risk, no inventory stuck with you.</div>
+      <div class="method-item"><span class="method-label">Supplier Access:</span>&nbsp; Get real, trusted sources—stop gambling on fakes or unreliable sellers.</div>
+      <div class="method-item"><span class="method-label">Copy-Paste Listings:</span>&nbsp; Save time using our tested photos and descriptions for best sales conversion.</div>
+      <div class="method-item"><span class="method-label">Negotiation Scripts:</span>&nbsp; Learn exactly what to say to close deals or upsell bulk buyers.</div>
+      <div class="method-item locked">
+        <span class="method-lock">&#128274;</span>
+        <span class="method-label">Hands-Free Automation Method:</span>&nbsp;
+        <span style="filter:blur(.7px);">Full passive income system—details revealed inside course only.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="fade-in">
+    <h2>About & Success Stories</h2>
+    <div class="about-box">
+      <b>About JRC Resell:</b><br>
+      Founded by a top-rated reseller with years of experience and thousands in product profits, JRC is dedicated to helping newcomers win. My proven system, wholesale connects, and “sell before you buy” approach lets anyone build income, even if you’re starting from $0.
+      <br><br>
+      <b>Ready for results? See what students are saying:</b>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="quote">“Made $600 profit my first month with just 2 products! The automation saves me so much time.”</div>
+        <div class="person">– Alyssa R.</div>
+      </div>
+      <div class="testimonial">
+        <div class="quote">“Super easy even with no experience. Sold my first item in 24 hours after listing.”</div>
+        <div class="person">– Liam S.</div>
+      </div>
+      <div class="testimonial">
+        <div class="quote">“Hands down the best group and mentor for reselling in 2025.”</div>
+        <div class="person">– Haroon K.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>Contact</h2>
+    <div class="contact-box">
+      <div class="contact-ig">
+        <b>Instagram:</b> <span class="contact-tag">@jjayresell_</span>
+      </div>
+      <a href="https://www.instagram.com/jjayresell_/" target="_blank">DM Me on Instagram</a>
+      <div style="color:#e5c968; margin-top:12px;">All inquiries, course signups & deals via Instagram.</div>
+    </div>
+  </section>
+
   <footer>
-    &copy; 2025 JRC Reselling Course. No affiliation with Apple, Chanel, or brands listed.<br>
-    Website by <a href="https://www.instagram.com/jjayresell_" style="color:#fbba31;text-decoration:none;">@jjayresell_</a>
+    &copy; 2025 JRC Resell. Built for entrepreneurs.<br>
+    <span style="font-size:.9em; color:#fff4; letter-spacing:.5px;">Made with passion & gold.</span>
   </footer>
+
   <script>
-    // Button navigation logic
-    const btns = document.querySelectorAll('.nav-btn');
-    const sections = document.querySelectorAll('.content-section');
-    btns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        btns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-        const target = this.getAttribute('data-section');
-        sections.forEach(sec => {
-          sec.classList.remove('active');
-          if(sec.id === target) sec.classList.add('active');
-        });
-        window.scrollTo({ top: document.querySelector('header').offsetHeight, behavior: "smooth" });
+    function fadeSections() {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) el.classList.add('visible');
       });
-    });
-    // Ensure "DM" button stays in same tab (if clicked on contact)
-    document.querySelectorAll('.cta-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        location.href = btn.getAttribute('href');
-      });
+    }
+    window.addEventListener('scroll', fadeSections);
+    window.addEventListener('load', fadeSections);
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.onclick = e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({ top: target.offsetTop - 58, behavior: "smooth" });
+        }
+      }
     });
   </script>
 </body>
